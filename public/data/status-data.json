@@ -28,5 +28,45 @@
   "map-links": {
     "apple": "http://maps.apple.com/?daddr=37.075134,-106.49389",
     "google": "https://www.google.com/maps/dir/?api=1&destination=37.075134,-106.49389"
+  },
+
+  "missing-persons": [
+    {
+      "name": "Andrew Porter",
+      "age": 25,
+      "height": "6 ft",
+      "build": "fit",
+      "hair": "light brown hair",
+      "photo-url": "/images/2025-09-12-osar-andrew-ian-photo-of-andrew.jpg",
+      "skills-experience": [
+        "Experienced hunter",
+        "Familiar with similar terrain in Montana"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Ian Stasko",
+      "age": 25,
+      "height": "6 ft",
+      "build": "fit",
+      "hair": "blond hair",
+      "photo-url": "/images/2025-09-12-osar-andrew-ian-photo-of-ian.jpg",
+      "skills-experience": [
+        "Experienced hunter"
+      ],
+      "notes": "Responds to whistles back and forth"
+    }
+  ],
+
+  "last-known-location": {
+    "description": "Vehicle at Rio de los Pinos Trailhead staging area",
+    "coordinates": { "lat": 37.075134, "lng": -106.49389 },
+    "time-iso": "2025-09-11T15:39:00-06:00",
+    "source": "Garmin inReach check-in",
+    "confidence": "high",
+    "map-links": {
+      "apple": "http://maps.apple.com/?daddr=37.075134,-106.49389",
+      "google": "https://www.google.com/maps/dir/?api=1&destination=37.075134,-106.49389"
+    }
   }
 }
