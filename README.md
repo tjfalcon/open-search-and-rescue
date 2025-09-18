@@ -1,4 +1,6 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Open Search and Rescue
+
+An Open Source available for public use search and rescue app
 
 ## Getting Started
 
