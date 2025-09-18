@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build --turbopack",
+  "build": "npm run set-build-time && next build --turbopack",
+  "set-build-time": "node ./scripts/set-build-time.js",
     "start": "next start",
     "lint": "eslint"
   },

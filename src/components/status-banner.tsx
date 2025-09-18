@@ -55,7 +55,10 @@ export default function StatusBanner() {
 
   const active = !!data["is-active"];
   const helpState = (data["volunteer-guidance"]?.state ?? "standby") as string;
-  const last = new Date(data["last-updated-iso"]);
+  // Use the app's build time as the last updated time
+  const buildTime = typeof process !== "undefined" && process.env && process.env.NEXT_PUBLIC_BUILD_TIME
+    ? new Date(process.env.NEXT_PUBLIC_BUILD_TIME)
+    : new Date();
   const google = data["map-links"]?.google;
   const apple  = data["map-links"]?.apple;
   const people = (data["missing-persons"] ?? []) as any[];
@@ -74,7 +77,7 @@ export default function StatusBanner() {
         <div className="kv">
           <div>Last Updated</div>
           <div>
-            {last.toLocaleString()} <small className="muted">({timeAgo(last)})</small>
+            {buildTime.toLocaleString()} <small className="muted">({timeAgo(buildTime)})</small>
           </div>
 
           <div>Can I Help?</div>
