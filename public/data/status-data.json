@@ -1,0 +1,32 @@
+{
+  "is-active": true,
+  "last-updated-iso": "2025-09-18T13:00:00-06:00",
+  "can-help": "yes-report-to-coordination-point",
+  "coordination-point-name": "Rio de los Pinos Trailhead Staging",
+  "coordination-point-address": "End of Forest Road 118.1C via Trujillo Meadows Reservoir turnoff",
+  "coordination-point-coordinates": { "lat": 37.075134, "lng": -106.49389 },
+  "lead-agency": "Conejos County Sheriff (coordinating Search and Rescue (SAR))",
+  "incident-name": "Rio de los Pinos Missing Hunters",
+  "public-contact": "Public updates via on-site coordinator; please report to coordination point",
+  "today-brief": "Search remains active with teams on foot and horseback. Terrain is steep, timbered, with limited visibility.",
+  "volunteer-guidance": {
+    "state": "go",
+    "message": "Volunteers are welcome. Do not self-deploy into the forest. Check in at the coordination point for assignment and safety briefing."
+  },
+  "assets-deployed": [
+    "Ground teams on foot",
+    "Horseback teams",
+    "Community volunteers",
+    "Unmanned aerial systems (drones) — availability varies by wind and airspace"
+  ],
+  "areas-covered-summary": "Multiple zones surrounding the trailhead have been searched with negative findings. New assignments focus north-northeast of the last known location.",
+  "safety-notes": [
+    "Do not enter assigned zones without check-in.",
+    "Severe weather possible; carry layers, water, and navigation.",
+    "Cell coverage is unreliable; bring a whistle and stay with your team."
+  ],
+  "map-links": {
+    "apple": "http://maps.apple.com/?daddr=37.075134,-106.49389",
+    "google": "https://www.google.com/maps/dir/?api=1&destination=37.075134,-106.49389"
+  }
+}

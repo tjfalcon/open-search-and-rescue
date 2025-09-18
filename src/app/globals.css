@@ -1,26 +1,70 @@
 @import "tailwindcss";
 
+/* minimal design tokens + components */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: #0b1120;
+  --card: #111827;
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+  --ok: #16a34a;
+  --warn: #ea580c;
+  --stop: #dc2626;
+  --accent: #60a5fa;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+* { box-sizing: border-box; }
+html, body { height: 100%; }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+  background: radial-gradient(1200px 800px at 20% 0%, #0f172a 0%, var(--bg) 60%);
+  color: var(--text);
 }
+
+/* utility-ish classes for the status card UI */
+.card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.25);
+}
+
+.badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 6px 10px; border-radius: 9999px; font-weight: 600;
+}
+
+.badge.ok {
+  background: color-mix(in oklab, var(--ok) 20%, transparent);
+  border: 1px solid color-mix(in oklab, var(--ok) 50%, transparent);
+}
+
+.badge.warn {
+  background: color-mix(in oklab, var(--warn) 20%, transparent);
+  border: 1px solid color-mix(in oklab, var(--warn) 50%, transparent);
+}
+
+.badge.stop {
+  background: color-mix(in oklab, var(--stop) 20%, transparent);
+  border: 1px solid color-mix(in oklab, var(--stop) 50%, transparent);
+}
+
+small.muted { color: var(--muted); }
+
+a { color: var(--accent); text-underline-offset: 3px; }
+
+/* key-value grid */
+.kv {
+  display: grid; grid-template-columns: 160px 1fr; gap: 8px 16px;
+}
+.kv > div {
+  padding: 8px 0; border-bottom: 1px dashed rgba(255,255,255,0.1);
+}
+
+/* headings */
+.h1 { font-size: clamp(28px, 4vw, 40px); margin: 0 0 16px; }
+.h2 { font-size: 18px; margin: 0 8px 8px 0; color: var(--muted); text-transform: uppercase; letter-spacing: .12em; }
+
+.hr { height: 1px; background: rgba(255,255,255,0.08); margin: 14px 0; }
