@@ -68,3 +68,13 @@ a { color: var(--accent); text-underline-offset: 3px; }
 .h2 { font-size: 18px; margin: 0 8px 8px 0; color: var(--muted); text-transform: uppercase; letter-spacing: .12em; }
 
 .hr { height: 1px; background: rgba(255,255,255,0.08); margin: 14px 0; }
+
+
+.btn{display:inline-flex;align-items:center;gap:.5rem;background:#1f2937;border:1px solid rgba(255,255,255,.08);padding:.625rem .875rem;border-radius:.75rem;color:var(--text);text-decoration:none;font-weight:600}
+.btn:hover{filter:brightness(1.1)}
+.mt-3{margin-top:.75rem} .mt-4{margin-top:1rem}
+.center{display:flex;align-items:center;justify-content:center}
+.people-grid{display:grid;gap:12px;grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (max-width: 700px){.people-grid{grid-template-columns:1fr}}
+.person{display:flex;gap:12px;align-items:flex-start;background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:12px}
+.avatar{width:64px;height:64px;border-radius:9999px;object-fit:cover;border:1px solid rgba(255,255,255,.15)}
