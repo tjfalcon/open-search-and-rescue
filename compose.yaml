@@ -1,0 +1,16 @@
+services:
+  osar:
+    build:
+      context: .
+    init: true
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: production
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://127.0.0.1:3000/api/health"]
+      interval: 15s
+      timeout: 3s
+      retries: 3
+      start_period: 15s
+    restart: unless-stopped

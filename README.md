@@ -1,38 +1,80 @@
 # Open Search and Rescue
 
-An Open Source available for public use search and rescue app
+An open-source, safety-first coordination tool for families and community organizers working alongside professional search and rescue and the agency of jurisdiction.
 
-## Getting Started
+**Current state:** public product foundation. The hosted app is an unmistakably synthetic, archived demonstration—not an active incident. It includes a responsive public interface, typed status API, health endpoint, safe expiration behavior, container build, and Kubernetes application base.
 
-First, run the development server:
+[View the demo](https://open-search-and-rescue.vercel.app) · [Architecture](docs/ARCHITECTURE.md) · [Safety and privacy](docs/SAFETY_AND_PRIVACY.md) · [Roadmap](docs/ROADMAP.md)
+
+## Why this exists
+
+When someone is missing, updates fragment across texts, social posts, documents, and word of mouth. Open Search and Rescue aims to give an authorized coordination team one auditable source of truth without encouraging unsafe self-deployment or exposing sensitive operational information.
+
+## Current product slice
+
+- Public incident projection served by `GET /api/status`.
+- Automatic safe pause for expired live updates.
+- Explicit demo labeling and synthetic data.
+- Failure state that directs visitors back to official sources.
+- `GET /api/health` for deployment probes.
+- Responsive Next.js/TypeScript user interface and server API.
+- Non-root production container with health check.
+
+The current demo intentionally does **not** accept public incident creation or personal data. Coordinator authentication, PostgreSQL persistence, review/approval, and the audit log come before live-use trials.
+
+## Deployment paths
+
+The target is one full-stack codebase with three operational profiles:
+
+| Profile | Intended use | Shape |
+|---|---|---|
+| Field instance | One family or local coordination group, one active incident | App + PostgreSQL via Docker Compose on a small host |
+| Managed edge | Public trial or sustained community use | Edge/CDN + app + managed PostgreSQL/object storage |
+| Kubernetes | SAR nonprofit, emergency-management partner, or multi-team drill | Stateless app/workers + managed data services + environment overlays |
+
+The lightweight field profile is the primary product constraint. Kubernetes is a scale and operations option, not a prerequisite. See [the architecture decision](docs/ARCHITECTURE.md) for service boundaries and safety controls.
+
+## Run locally
+
+Requires Node.js 20 or newer.
 
 ```bash
+npm ci
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open `http://localhost:3000`. Verify the service at `http://localhost:3000/api/health`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Run as a container
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+docker compose up --build
+```
 
-## Learn More
+The production-style application is available at `http://localhost:3000`. The included container runs as a non-root user and the Compose service includes a health check.
 
-To learn more about Next.js, take a look at the following resources:
+## Kubernetes base
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The base manifests deploy the current stateless application:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+kubectl apply -k k8s/base
+```
 
-## Deploy on Vercel
+The image reference is a target registry path. Pin a released digest before any real deployment. TLS/ingress, secrets, database, object storage, backups, and network policy belong in environment-specific overlays and are not yet claimed as production-ready.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Guardrails for contributors
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Use synthetic data in public development and tests.
+- Never post an active person's private information in an issue, fixture, screenshot, or pull request.
+- Default volunteer guidance to “do not self-deploy.”
+- Do not add AI-driven field decisions or autonomous publication.
+- Treat accessibility, low bandwidth, auditability, expiry, and failure behavior as core requirements.
+
+## Near-term definition of done
+
+The first trial-capable release requires authenticated coordinators, two-person publication approval, PostgreSQL-backed incidents and audit events, automatic expiry, encrypted backup/restore, end-to-end tests, a threat model, and a supervised synthetic drill. See the [roadmap](docs/ROADMAP.md).
+
+## License
+
+Licensed under the terms in [LICENSE](LICENSE).

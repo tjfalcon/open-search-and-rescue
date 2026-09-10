@@ -1,29 +1,48 @@
-// Make sure the import path is correct and the file exists.
-// For example, if the file is at src/components/status-banner.tsx:
-
 import StatusBanner from "@/components/status-banner";
+import Link from "next/link";
 
 export default function Page() {
   return (
     <>
-      <div style={{ width: "100%", textAlign: "center", marginBottom: 16 }}>
-        <a
-          href="https://www.facebook.com/share/p/1FcXJoh3sU/"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{ fontWeight: 600, color: "#1877f2", textDecoration: "underline", fontSize: 18 }}
-        >
-          View the Facebook Post
-        </a>
-      </div>
-      <StatusBanner />
-      <div className="card mt-4">
-        <h2 className="h2">Share This Page</h2>
-        <p>
-          Pin this link at the top of social posts so people can quickly see if the
-          search is active, how they can help, and where to go for coordination.
+      <header className="site-header">
+        <Link className="wordmark" href="/">Open Search and Rescue</Link>
+        <nav aria-label="Primary navigation">
+          <a href="https://github.com/tjfalcon/open-search-and-rescue">Source code</a>
+          <a href="/api/health">System health</a>
+        </nav>
+      </header>
+
+      <section className="hero">
+        <p className="eyebrow">Community coordination · safety first</p>
+        <h1>One verified source of truth when every minute matters.</h1>
+        <p className="lede">
+          An open-source incident coordination tool designed for families and community
+          organizers working alongside the agency of jurisdiction.
         </p>
+      </section>
+
+      <div className="demo-callout" role="note">
+        <strong>Synthetic demonstration.</strong> This page does not describe an active
+        incident, real people, or a real location.
       </div>
+
+      <StatusBanner />
+
+      <section className="card project-note">
+        <p className="eyebrow">What is being built</p>
+        <h2>Lightweight in the field, scalable when needed</h2>
+        <p>
+          The first deployment target is one containerized instance for one family-led
+          coordination effort. The same application is being designed to scale behind an
+          edge network with managed data services or Kubernetes for larger organizations.
+        </p>
+        <div className="actions">
+          <a className="btn primary" href="https://github.com/tjfalcon/open-search-and-rescue#deployment-paths">
+            Review the architecture
+          </a>
+          <a className="btn" href="/qr">Share demo QR</a>
+        </div>
+      </section>
     </>
   );
 }

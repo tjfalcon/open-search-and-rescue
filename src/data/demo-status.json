@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "mode": "demo",
+  "incidentId": "demo-backcountry-001",
+  "incidentName": "Sample Backcountry Search",
+  "incidentStatus": "archived",
+  "updatedAt": "2026-09-10T12:00:00-06:00",
+  "expiresAt": "2026-09-11T12:00:00-06:00",
+  "leadOrganization": "Fictional County Search Coordination Team",
+  "summary": "This synthetic incident demonstrates how a family coordination team could publish a single, verified source of truth. It is not an active search and does not identify real people or places.",
+  "volunteerGuidance": {
+    "state": "closed",
+    "message": "Demonstration only. Do not travel, self-deploy, or contact emergency services based on this page."
+  },
+  "verifiedUpdates": [
+    {
+      "id": "demo-update-2",
+      "publishedAt": "2026-09-10T12:00:00-06:00",
+      "title": "Demo incident archived",
+      "body": "The demonstration workflow is complete. A production incident would retain an audit trail while removing public operational details."
+    },
+    {
+      "id": "demo-update-1",
+      "publishedAt": "2026-09-10T10:30:00-06:00",
+      "title": "Coordination page created",
+      "body": "A verified coordinator published a synthetic status update and volunteer safety guidance."
+    }
+  ],
+  "safetyNotes": [
+    "Call local emergency services first when someone may be in immediate danger.",
+    "Never self-deploy into a search area; follow the agency of jurisdiction.",
+    "Public updates must exclude sensitive medical details and non-public precise locations."
+  ]
+}
