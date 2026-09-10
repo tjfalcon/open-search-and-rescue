@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Search and Rescue Status",
+  title: "Open Search and Rescue | Community coordination",
   description:
-    "Simple live status page for community-supported Search and Rescue (SAR).",
+    "An open-source, safety-first coordination tool for families and community search efforts.",
 };
 
 export default function RootLayout({
@@ -15,13 +15,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <main className="max-w-[880px] mx-auto px-5 py-8 md:py-12">
+        <main className="shell">
           {children}
-          <footer className="mt-6 opacity-70">
-            <small className="muted">
-              For safety: do not self-deploy. Always check in at the coordination
-              point for assignment and a safety briefing.
-            </small>
+          <footer>
+            <p>
+              Open Search and Rescue supports coordination; it does not replace 911,
+              law enforcement, emergency management, or professional search and rescue.
+            </p>
           </footer>
         </main>
       </body>
