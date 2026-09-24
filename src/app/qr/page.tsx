@@ -1,14 +1,16 @@
 "use client";
 import { QRCodeCanvas } from "qrcode.react";
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
+
+const fallbackUrl = "https://open-search-and-rescue.vercel.app";
+const subscribe = () => () => undefined;
 
 export default function QRPage() {
-  const [url, setUrl] = useState("https://open-search-and-rescue.vercel.app");
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      setUrl(window.location.origin); // points to your live site root
-    }
-  }, []);
+  const url = useSyncExternalStore(
+    subscribe,
+    () => window.location.origin,
+    () => fallbackUrl,
+  );
   return (
     <div className="card">
       <h1 className="h1">Share by Quick Response (QR) Code</h1>
